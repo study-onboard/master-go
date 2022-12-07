@@ -1,0 +1,28 @@
+[
+    {
+        "Name": "Sanlea",
+        "Members": [
+            {
+                "Name": "Kut Zhang",
+                "Position": "IT Manager"
+            },
+            {
+                "Name": "Lana Chang",
+                "Position": "Boss"
+            }
+        ]
+    },
+    {
+        "Name": "OSD",
+        "Members": [
+            {
+                "Name": "Mana Zhou",
+                "Position": "CEO"
+            },
+            {
+                "Name": "Obo En",
+                "Position": "Boss"
+            }
+        ]
+    }
+]
