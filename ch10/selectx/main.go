@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"sync"
+	"time"
 )
 
 func main() {
@@ -57,7 +58,11 @@ func dispatcher(
 		case <-controlChannel:
 			fmt.Println("dispatcher complete!")
 			return
+
+		case currentTime := <-time.After(4 * time.Second):
+			fmt.Printf("current time: %v\n", currentTime)
 		}
+
 	}
 }
 
