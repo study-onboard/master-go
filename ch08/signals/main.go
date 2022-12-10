@@ -11,6 +11,9 @@ import (
 func main() {
 	signalChannel := make(chan os.Signal, 1)
 	signal.Notify(signalChannel, os.Interrupt, syscall.SIGALRM)
+	// can listen all signals by blow codes
+	// ------------------------------------------------
+	// signal.Notify(signalChannel)
 
 	// wait group
 	var waitGroup sync.WaitGroup
