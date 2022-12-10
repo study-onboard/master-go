@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -10,6 +11,7 @@ import (
 const DATA_FILE_PATH_1 = "./data/1"
 const DATA_FILE_PATH_2 = "./data/2"
 const DATA_FILE_PATH_3 = "./data/3"
+const DATA_FILE_PATH_4 = "./data/4"
 
 func main() {
 	writeStringFileDirectly()
@@ -18,6 +20,7 @@ func main() {
 	printLine()
 	writeStringByIo()
 	printLine()
+	writeStringByBufio()
 }
 
 // print line
@@ -55,4 +58,43 @@ func writeStringByIo() {
 
 	io.WriteString(file, "Good good study, day day up!!!")
 	fmt.Println("write string by io complete!")
+}
+
+// write string by bufio
+func writeStringByBufio() {
+	writeFile, err := os.Create(DATA_FILE_PATH_4)
+	if err != nil {
+		fmt.Printf("create file error: %s\n", err.Error())
+		os.Exit(1)
+	}
+	defer writeFile.Close()
+
+	writer := bufio.NewWriter(writeFile)
+	writer.WriteString("show me the money\n")
+	writer.WriteString("how do you turn this on\n")
+	writer.WriteString("good good study, day day up\n")
+	writer.WriteString("make love, no war\n")
+	err = writer.Flush()
+	if err != nil {
+		fmt.Printf("flush writer error: %s\n", err.Error())
+		os.Exit(1)
+	}
+	fmt.Println("write string by bufio complete!")
+
+	// ------------------------------------------------
+
+	readFile, err := os.Open(DATA_FILE_PATH_4)
+	if err != nil {
+		fmt.Printf("open file error: %s\n", err.Error())
+		os.Exit(1)
+	}
+	defer readFile.Close()
+
+	reader := bufio.NewReader(readFile)
+	bytes, err := ioutil.ReadAll(reader)
+	if err != nil {
+		fmt.Printf("read file error: %s\n", err.Error())
+		os.Exit(1)
+	}
+	fmt.Println(string(bytes))
 }
