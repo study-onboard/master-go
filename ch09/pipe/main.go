@@ -10,14 +10,17 @@ func main() {
 	var w sync.WaitGroup
 	w.Add(2)
 
-	go step1(channel, &w)
-	go step2(channel, &w)
+	go stepOne(channel, &w)
+	go stepTwo(channel, &w)
 
 	w.Wait()
 	fmt.Println("main complete")
 }
 
-func step1(channel chan<- string, w *sync.WaitGroup) {
+// step one
+//
+// write message to channel
+func stepOne(channel chan<- string, w *sync.WaitGroup) {
 	defer w.Done()
 
 	fmt.Println("step 1 start")
@@ -25,7 +28,10 @@ func step1(channel chan<- string, w *sync.WaitGroup) {
 	channel <- "Complete!"
 }
 
-func step2(channel <-chan string, w *sync.WaitGroup) {
+// step two
+//
+// read message from channel
+func stepTwo(channel <-chan string, w *sync.WaitGroup) {
 	defer w.Done()
 
 	message := <-channel
