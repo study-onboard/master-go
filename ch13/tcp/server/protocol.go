@@ -135,6 +135,7 @@ func writeResponsePackage(response *ResponsePackage, writer io.Writer, conn net.
 	return nil
 }
 
+// write bytes by writer
 func writeBytes(writer io.Writer, buffer []byte) error {
 	n, err := writer.Write(buffer)
 	if err != nil {
