@@ -8,6 +8,7 @@ import (
 	"github.com/study-onboard/master-go/ch08/pipe"
 )
 
+// read persons JSON from stdin
 func main() {
 	decoder := json.NewDecoder(os.Stdin)
 	var persons []pipe.Person

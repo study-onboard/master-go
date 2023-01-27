@@ -7,6 +7,7 @@ import (
 	"github.com/study-onboard/master-go/ch08/pipe"
 )
 
+// write persons as JSON to stdout
 func main() {
 	persons := []pipe.Person{
 		*pipe.NewPerson("Kut Zhang"),
