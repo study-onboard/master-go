@@ -21,6 +21,7 @@ func main() {
 	listImages(cli)
 }
 
+// print line
 func printLine() {
 	fmt.Println("----------------------------------------------------------------")
 }
