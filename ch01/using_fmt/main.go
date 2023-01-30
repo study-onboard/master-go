@@ -7,4 +7,5 @@ func main() {
 	fmt.Printf("show me the %s\n", "money")
 	fmt.Print("show me the money\n")
 	fmt.Println(fmt.Sprintf("show me the %s", "money"))
+	fmt.Printf("show me the %q\n", "money")
 }
