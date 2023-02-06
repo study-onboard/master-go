@@ -1,1 +1,28 @@
-[{"Name":"Masaga","Members":[{"Name":"Kut Zhang","Position":"IT Manager"},{"Name":"Lana Chang","Position":"Boss"}]},{"Name":"Lusico","Members":[{"Name":"Lucy Liu","Position":"CEO"},{"Name":"Lily Pu","Position":"CTO"}]}]
+[
+    {
+        "Name": "Masaga",
+        "Members": [
+            {
+                "Name": "Kut Zhang",
+                "Position": "IT Manager"
+            },
+            {
+                "Name": "Lana Chang",
+                "Position": "Boss"
+            }
+        ]
+    },
+    {
+        "Name": "Lusico",
+        "Members": [
+            {
+                "Name": "Lucy Liu",
+                "Position": "CEO"
+            },
+            {
+                "Name": "Lily Pu",
+                "Position": "CTO"
+            }
+        ]
+    }
+]

@@ -26,10 +26,22 @@ func main() {
 	fmt.Println(response)
 }
 
+// request url
+//
+// return:
+//
+// ----------------------------------------------
+//
+// result - text content of response
+//
+// err - error
 func request(url string) (result string, err error) {
 
 	ctx := context.Background()
 	ctx, cancel := context.WithTimeout(ctx, time.Duration(30)*time.Second)
+
+	// when request function return, call cancel function to cancel request,
+	// if request is success, cancel function will do nothing for this operation.
 	defer cancel()
 
 	data := make(chan *requestResponse)
@@ -54,11 +66,13 @@ func request(url string) (result string, err error) {
 	}()
 
 	select {
+	// when request timeout, ctx will done, this channel will close
 	case <-ctx.Done():
 		result = ""
 		err = ctx.Err()
 		return
 
+	// request data return
 	case response := <-data:
 		result = response.result
 		err = response.err
